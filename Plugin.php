@@ -30,9 +30,14 @@ class Plugin extends PluginBase
             $settings = MailSetting::instance();
             if ($settings->send_mode === self::MODE_SPARKPOST) {
                 $config = App::make('config');
+                $config->set('mail.mailers.sparkpost.transport', self::MODE_SPARKPOST);
                 $config->set('services.sparkpost.secret', $settings->sparkpost_secret);
 
             }
+
+            $mailManager->extend(self::MODE_SPARKPOST, function ($config) {
+                // create custom transport here
+            });
         });
 
     }
