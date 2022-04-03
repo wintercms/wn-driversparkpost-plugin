@@ -1,4 +1,4 @@
-<?php namespace Winter\Sparkpost;
+<?php namespace Winter\SparkpostDriver;
 
 use App;
 use Event;
@@ -17,8 +17,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Sparkpost',
-            'description' => 'winter.sparkpost::lang.plugin_description',
+            'name'        => 'Sparkpost driver',
+            'description' => 'winter.sparkpostdriver::lang.plugin_description',
             'author'      => 'Winter',
             'icon'        => 'icon-leaf'
         ];
@@ -63,9 +63,9 @@ class Plugin extends PluginBase
 
             $widget->addTabFields([
                 'sparkpost_secret' => [
-                    "tab"     => "system::lang.mail.general",
-                    'label'   => 'winter.sparkpost::lang.fields.sparkpost_secret.label',
-                    'commentAbove' => 'winter.sparkpost::lang.fields.sparkpost_secret.comment',
+                    "tab"     => "systemdriver::lang.mail.general",
+                    'label'   => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.label',
+                    'commentAbove' => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.comment',
                     'trigger' => [
                         'action'    => 'show',
                         'field'     => 'send_mode',
