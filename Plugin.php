@@ -2,10 +2,11 @@
 
 use App;
 use Event;
-use Backend;
-use Backend\Models\UserRole;
 use System\Classes\PluginBase;
 use System\Models\MailSetting;
+
+use GuzzleHttp\Client;
+use Vemcogroup\SparkPostDriver\Transport\SparkPostTransport;
 
 /**
  * Sparkpost Plugin Information File
@@ -26,18 +27,25 @@ class Plugin extends PluginBase
 
     public function register()
     {
-        Event::listen('mailer.beforeRegister', function () {
+        Event::listen('mailer.beforeRegister', function ($mailManager) {
+            $mailManager->extend(self::MODE_SPARKPOST, function ($config) {
+                if (!isset($config['secret'])) {
+                    $config = $this->app['config']->get('services.sparkpost', []);
+                }
+
+                $sparkpostOptions = $config['options'] ?? [];
+                $guzzleOptions = $config['guzzle'] ?? [];
+                $client = $this->app->make(Client::class, $guzzleOptions);
+
+                return new SparkPostTransport($client, $config['secret'], $sparkpostOptions);
+            });
+
             $settings = MailSetting::instance();
             if ($settings->send_mode === self::MODE_SPARKPOST) {
                 $config = App::make('config');
                 $config->set('mail.mailers.sparkpost.transport', self::MODE_SPARKPOST);
                 $config->set('services.sparkpost.secret', $settings->sparkpost_secret);
-
             }
-
-            $mailManager->extend(self::MODE_SPARKPOST, function ($config) {
-                // create custom transport here
-            });
         });
 
     }
@@ -63,7 +71,7 @@ class Plugin extends PluginBase
 
             $widget->addTabFields([
                 'sparkpost_secret' => [
-                    "tab"     => "systemdriver::lang.mail.general",
+                    "tab"     => "system::lang.mail.general",
                     'label'   => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.label',
                     'commentAbove' => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.comment',
                     'trigger' => [
