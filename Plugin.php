@@ -18,7 +18,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Sparkpost driver',
+            'name'        => 'winter.sparkpostdriver::lang.plugin_name',
             'description' => 'winter.sparkpostdriver::lang.plugin_description',
             'author'      => 'Winter',
             'icon'        => 'icon-leaf'
