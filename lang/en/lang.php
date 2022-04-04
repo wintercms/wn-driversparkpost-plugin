@@ -2,7 +2,7 @@
 
 return [
     'plugin_name' => 'Sparkpost mail driver',
-    'plugin_description' => 'Sparkpost mail driver plugin',
+    'plugin_description' => 'Sparkpost mail driver functionality for Winter CMS.',
 
     'fields' => [
         'sparkpost_secret' => [

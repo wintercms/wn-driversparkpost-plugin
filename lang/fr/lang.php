@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'plugin_description' => "Plugin qui ajoute l'envoi de courriel à travers Sparkpost",
+    'plugin_name' => "Pilote de courriel Sparkpost",
+    'plugin_description' => "Ajoute le pilote de courriel Sparkpost pour Winter CMS.",
 
     'fields' => [
         'sparkpost_secret' => [
