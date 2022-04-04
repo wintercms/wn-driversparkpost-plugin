@@ -1,0 +1,18 @@
+{
+    "name": "winter/wn-sparkpostdriver-plugin",
+    "description": "Sparkpost Mail Driver",
+    "type": "winter-plugin",
+    "homepage": "https://github.com/wintercms/wn-sparkpostdriver-plugin",
+    "keywords": [ "sparkpost", "wintercms", "mail", "driver" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc Jauvin",
+            "email": "marc.jauvin@gmail.com"
+        }
+    ],
+    "require": {
+	    "symfony/http-client": "^6.0",
+	    "vemcogroup/laravel-sparkpost-driver": "^5.0"
+    }
+}
