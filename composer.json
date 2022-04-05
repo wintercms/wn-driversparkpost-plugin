@@ -1,18 +1,28 @@
 {
-    "name": "winter/wn-sparkpostdriver-plugin",
-    "description": "Sparkpost Mail Driver",
+    "name": "winter/wn-driversparkpost-plugin",
+    "description": "Driver that adds support for the SparkPost mailer to WinterCMS",
     "type": "winter-plugin",
-    "homepage": "https://github.com/wintercms/wn-sparkpostdriver-plugin",
-    "keywords": [ "sparkpost", "wintercms", "mail", "driver" ],
+    "homepage": "https://github.com/wintercms/wn-driversparkpost-plugin",
+    "support": {
+        "issues": "https://github.com/wintercms/wn-driversparkpost-plugin/issues",
+        "discord": "https://discord.gg/D5MFSPH6Ux",
+        "source": "https://github.com/wintercms/wn-driversparkpost-plugin"
+    },
+    "keywords": ["sparkpost", "wintercms", "mail", "driver"],
     "license": "MIT",
     "authors": [
         {
             "name": "Marc Jauvin",
             "email": "marc.jauvin@gmail.com"
+        },
+        {
+            "name": "Winter CMS Maintainers",
+            "homepage": "https://wintercms.com",
+            "role": "Maintainer"
         }
     ],
     "require": {
-	    "guzzlehttp/guzzle": "^7.0",
-	    "vemcogroup/laravel-sparkpost-driver": "^5.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "vemcogroup/laravel-sparkpost-driver": "^5.0"
     }
 }

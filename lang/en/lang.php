@@ -1,13 +1,11 @@
 <?php
 
 return [
-    'plugin_name' => 'Sparkpost mail driver',
-    'plugin_description' => 'Sparkpost mail driver functionality for Winter CMS.',
-
-    'fields' => [
-        'sparkpost_secret' => [
-            'label' => 'Sparkpost secret',
-            'comment' => 'Enter your Sparkpost secret',
-        ],
+    'plugin' => [
+        'name' => 'Mail Driver (SparkPost)',
+        'description' => 'Driver that adds support for the SparkPost mailer to WinterCMS',
     ],
+
+    'sparkpost_secret' => 'SparkPost secret',
+    'sparkpost_secret_comment' => 'Enter your SparkPost API secret key',
 ];

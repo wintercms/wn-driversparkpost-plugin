@@ -1,4 +1,4 @@
-<?php namespace Winter\SparkpostDriver;
+<?php namespace Winter\DriverSparkPost;
 
 use App;
 use Event;
@@ -18,10 +18,11 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'winter.sparkpostdriver::lang.plugin_name',
-            'description' => 'winter.sparkpostdriver::lang.plugin_description',
-            'author'      => 'Winter',
-            'icon'        => 'icon-leaf'
+            'name'        => 'winter.driversparkpost::lang.plugin.name',
+            'description' => 'winter.driversparkpost::lang.plugin.description',
+            'homepage'    => 'https://github.com/wintercms/wn-driversparkpost-plugin',
+            'author'      => 'Winter CMS',
+            'icon'        => 'icon-leaf',
         ];
     }
 
@@ -67,13 +68,14 @@ class Plugin extends PluginBase
             }
 
             $field = $widget->getField('send_mode');
-            $field->options(array_merge($field->options(), [self::MODE_SPARKPOST => "Sparkpost"]));
+            $field->options(array_merge($field->options(), [self::MODE_SPARKPOST => 'Sparkpost']));
 
             $widget->addTabFields([
                 'sparkpost_secret' => [
-                    "tab"     => "system::lang.mail.general",
-                    'label'   => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.label',
-                    'commentAbove' => 'winter.sparkpostdriver::lang.fields.sparkpost_secret.comment',
+                    'tab'     => 'system::lang.mail.general',
+                    'label'   => 'winter.driversparkpost::lang.sparkpost_secret',
+                    'type'    => 'sensitive',
+                    'commentAbove' => 'winter.driversparkpost::lang.sparkpost_secret_comment',
                     'trigger' => [
                         'action'    => 'show',
                         'field'     => 'send_mode',
