@@ -13,6 +13,8 @@ use Vemcogroup\SparkPostDriver\Transport\SparkPostTransport;
  */
 class Plugin extends PluginBase
 {
+    public $elevated = true;
+    
     const MODE_SPARKPOST = 'sparkpost';
 
     public function pluginDetails()
